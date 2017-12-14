@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0"
+            Background="Beige">
+            <TextBox Width="Auto" Margin="2"
+             Text="green"/>
+            <local:Circle x:Name="c1" Margin="3" />
+            <local:Circle Margin="3" />
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+            Background="Bisque">
+        </StackPanel>
+
     </Grid>
 </Window>
