@@ -5,22 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0"
-            Background="Beige">
-            <TextBox Width="Auto" Margin="2"
-             Text="green"/>
-            <local:Circle x:Name="c1" Margin="3" />
-            <local:Circle Margin="3" />
-        </StackPanel>
-        <StackPanel Grid.Column="1"
-            Background="Bisque">
-        </StackPanel>
-
-    </Grid>
+        Title="MainWindow" Height="566.617" Width="525">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MyBrush" Color="Gold"/>
+        <Style TargetType="Border" x:Key="PageBackground">
+            <Setter Property="Background" Value="Blue"/>
+        </Style>
+        <Style TargetType="TextBlock" >
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#4E87D4"/>
+            <Setter Property="FontFamily" Value="Trebuchet MS"/>
+            <Setter Property="Margin" Value="0,40,10,10"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Label">
+            <Setter Property="DockPanel.Dock" Value="Right"/>
+            <Setter Property="FontSize" Value="8"/>
+            <Setter Property="Foreground" Value="{StaticResource MyBrush}"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,3,10,0"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <Border Style="{StaticResource PageBackground}">
+            <DockPanel>
+                <TextBlock >Title</TextBlock>
+                <TextBlock Style="{StaticResource Label}">Label</TextBlock>
+                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" FontSize="36" Foreground="{StaticResource MyBrush}" Text="Text" Margin="20" />
+                <Button DockPanel.Dock="Top" HorizontalAlignment="Left" Height="30" Background="{StaticResource MyBrush}" Margin="40">Button</Button>
+                <Ellipse DockPanel.Dock="Top" HorizontalAlignment="Left" Width="100" Height="100" Fill="{StaticResource MyBrush}" Margin="40" />
+            </DockPanel>
+        </Border>
+    </StackPanel>
 </Window>

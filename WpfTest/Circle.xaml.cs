@@ -49,13 +49,7 @@ namespace WpfTest
 
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
-                Console.WriteLine("movinf");
             }
-            else
-            {
-                Console.WriteLine("OnMouseMove");
-            }
-            
         }
 
 
@@ -131,8 +125,6 @@ namespace WpfTest
                     // the drag-and-drop operation will have. These values are 
                     // used by the drag source's GiveFeedback event handler.
                     // (Copy if CTRL is pressed; otherwise, move.)
-                    _previousFill = circleUI.Fill;
-                    Console.WriteLine(_previousFill);
                     if (e.KeyStates.HasFlag(DragDropKeyStates.ControlKey))
                     {
                         e.Effects = DragDropEffects.Copy;
@@ -141,12 +133,30 @@ namespace WpfTest
                     {
                         e.Effects = DragDropEffects.Move;
                     }
+                }
+            }
+            e.Handled = true;
+        }
 
+        protected override void OnDragEnter(DragEventArgs e)
+        {
+            base.OnDragEnter(e);
+            // Save the current Fill brush so that you can revert back to this value in DragLeave.
+            _previousFill = circleUI.Fill;
+
+            // If the DataObject contains string data, extract it.
+            if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            {
+                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+
+                // If the string can be converted into a Brush, convert it.
+                BrushConverter converter = new BrushConverter();
+                if (converter.IsValid(dataString))
+                {
                     Brush newFill = (Brush)converter.ConvertFromString(dataString.ToString());
                     circleUI.Fill = newFill;
                 }
             }
-            e.Handled = true;
         }
 
         protected override void OnDragLeave(DragEventArgs e)

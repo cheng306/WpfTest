@@ -8,10 +8,11 @@
              d:DesignHeight="300" d:DesignWidth="300"
              AllowDrop="True">
     <Grid>
-        <Ellipse x:Name="circleUI" 
-         Height="100" Width="100"
-         Fill="Blue" 
-                 />
+        <Ellipse 
+            x:Name="circleUI" 
+            Height="100" 
+            Width="100"
+            Fill="Blue"/>
             
     </Grid>
 </UserControl>
