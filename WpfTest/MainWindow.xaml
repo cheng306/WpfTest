@@ -29,6 +29,24 @@
       <Button />
 
     </WrapPanel>
+    <ListView x:Name="lv">
+      <ListView.View>
+      <GridView>
+        <GridViewColumn Width="120"
+                        DisplayMemberBinding="{Binding Number}">
+          <GridViewColumn.Header>
+            <GridViewColumnHeader Tag="Name"
+                                Click="GridViewColumnHeader_Click">
+              Name
+            </GridViewColumnHeader>
+          </GridViewColumn.Header>
+        </GridViewColumn>
+      </GridView>
+      </ListView.View>
+
+
+
+    </ListView>
 
 
 
