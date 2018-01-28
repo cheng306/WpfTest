@@ -17,39 +17,25 @@
     </Style>
 
   </Window.Resources>
-  <StackPanel>
-    <Label Content="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}"/>
-    <TextBox />
-    <Label />
-    <TextBox />
-    <Label />
-    <TextBox />
-    <WrapPanel>
-      <Button />
-      <Button />
+  <Grid x:Name="grid">
+    <Grid.RowDefinitions>
+      <RowDefinition>
+        
+      </RowDefinition>
+      <RowDefinition>
 
-    </WrapPanel>
-    <ListView x:Name="lv">
-      <ListView.View>
-      <GridView>
-        <GridViewColumn Width="120"
-                        DisplayMemberBinding="{Binding Number}">
-          <GridViewColumn.Header>
-            <GridViewColumnHeader Tag="Name"
-                                Click="GridViewColumnHeader_Click">
-              Name
-            </GridViewColumnHeader>
-          </GridViewColumn.Header>
-        </GridViewColumn>
-      </GridView>
-      </ListView.View>
-
-
-
-    </ListView>
-
-
-
-  </StackPanel>
+      </RowDefinition>
+    </Grid.RowDefinitions>
+    <Canvas>
+      <TextBox>
+        
+      </TextBox>
+    </Canvas>
+    <Canvas Width="2000">
+      <TextBlock Text="{Binding ElementName=grid, Path=ActualWidth}">
+        
+      </TextBlock>
+    </Canvas>
+  </Grid>
 
 </Window>
