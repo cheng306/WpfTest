@@ -23,23 +23,16 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<User> oc;
+        
         public MainWindow()
         {
             InitializeComponent();
-          
-
         }
 
-        
-    }
-
-    public class User{
-
-        public int Number
+        private void Circle_TouchDown(object sender, TouchEventArgs e)
         {
-            get;set;
+            Console.WriteLine(e.TouchDevice.Id);
         }
-
     }
+
 }
