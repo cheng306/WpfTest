@@ -45,17 +45,17 @@ namespace WpfTest
         private string b;
 
         public static String a = "sdf";
+
         public string IntegerPro
         {
             get { return (string)GetValue(IntegerrProProperty); }
             set { SetValue(IntegerrProProperty, value); }
         }
 
-        public static readonly DependencyProperty IntegerrProProperty =
-    DependencyProperty.Register(
-    "IntegerPro", typeof(string),
-    typeof(Circle)
-    );
+      public static readonly DependencyProperty IntegerrProProperty
+      = DependencyProperty.Register("IntegerPro", typeof(string),typeof(Circle));
+
+      public int A { get; set; }
 
     }
 }

@@ -14,10 +14,12 @@
         Width="800"
         MinHeight="400"
         MinWidth="800">
-  <Canvas>
-    <local:Circle TouchDown="Circle_TouchDown"/>
- 
-  </Canvas>
+  <StackPanel>
+    <ListBox x:Name="listBox" />
+    <Button Content="Click pls"
+            Click="Button_Click"/>
+    
+  </StackPanel>
   </Window>
 
 
